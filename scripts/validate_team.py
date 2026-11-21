@@ -3,7 +3,8 @@
 
 Checks .claude/agents/*.md and .claude/skills/*/SKILL.md against the Claude Code
 file format and this team's conventions, and checks that agent <-> skill wiring,
-the orchestrator routing table and docs/expert-roster.md are all in sync.
+the orchestrator routing table, docs/expert-roster.md, docs/agent-brains.md and
+knowledge/<agent>/ folders are all in sync, and that every agent has a model and persona.
 
 Usage:  python3 scripts/validate_team.py        (exit code 1 if any error)
 """
@@ -15,6 +16,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AGENTS_DIR = os.path.join(ROOT, ".claude", "agents")
 SKILLS_DIR = os.path.join(ROOT, ".claude", "skills")
 ROSTER = os.path.join(ROOT, "docs", "expert-roster.md")
+BRAINS = os.path.join(ROOT, "docs", "agent-brains.md")
+KNOWLEDGE_DIR = os.path.join(ROOT, "knowledge")
+MODEL_ALIASES = {"opus", "sonnet", "haiku", "fable", "inherit"}
 ORCH = "orchestrator"
 DELEGATORS = {"orchestrator", "agent-architect"}
 
@@ -186,7 +190,21 @@ else:
             err(f"{rel}: '{name}' must be able to use the Agent tool")
         if "Guardrails" not in body and name not in DELEGATORS:
             warn(f"{rel}: body has no Guardrails section")
-        agents[name] = {"skills": sk, "body": body}
+        model = str(data.get("model") or "")
+        if not model:
+            err(f"{rel}: no model set (team convention: opus, sonnet or haiku)")
+        elif model not in MODEL_ALIASES and not model.startswith("claude-"):
+            err(f"{rel}: unrecognized model '{model}'")
+        if f"knowledge/{name}/" not in body:
+            err(f"{rel}: body must tell the agent to read knowledge/{name}/ first")
+        kreadme = os.path.join(KNOWLEDGE_DIR, name, "README.md")
+        if not os.path.isfile(kreadme):
+            err(f"knowledge/{name}/README.md is missing")
+        m = re.search(r"^- \*\*Name:\*\* ([^.\n]+)\.", body, re.M)
+        persona = m.group(1).strip() if m else None
+        if not persona:
+            err(f"{rel}: missing persona (a '## Your persona' section with '- **Name:** <first name>.')")
+        agents[name] = {"skills": sk, "body": body, "persona": persona, "model": model}
 
 # ---------------- cross checks ----------------
 n = len(agents)
@@ -223,6 +241,29 @@ if os.path.isfile(ROSTER):
             err(f"docs/expert-roster.md does not mention skill `{s}`")
 else:
     err("docs/expert-roster.md is missing")
+
+personas = {}
+for a, v in agents.items():
+    if v["persona"]:
+        if v["persona"] in personas:
+            err(f"persona name '{v['persona']}' is used by both `{personas[v['persona']]}` and `{a}`")
+        personas[v["persona"]] = a
+
+if os.path.isfile(BRAINS):
+    brains = open(BRAINS, encoding="utf-8").read()
+    for a, v in agents.items():
+        row = next((ln for ln in brains.splitlines() if f"`{a}`" in ln and ln.startswith("|")), None)
+        if row is None:
+            err(f"docs/agent-brains.md has no row for `{a}`")
+        elif v["model"] and f"`{v['model']}`" not in row:
+            err(f"docs/agent-brains.md lists a different model for `{a}` than its file (`{v['model']}`)")
+else:
+    err("docs/agent-brains.md is missing")
+
+if os.path.isdir(KNOWLEDGE_DIR):
+    for d in sorted(os.listdir(KNOWLEDGE_DIR)):
+        if os.path.isdir(os.path.join(KNOWLEDGE_DIR, d)) and d not in agents:
+            warn(f"knowledge/{d}/ has no matching agent")
 
 # ---------------- report ----------------
 print(f"Agents: {n}   Skills: {len(skills)}   Agent descriptions: ~{total_desc // 4} tokens")

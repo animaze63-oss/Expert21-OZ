@@ -26,6 +26,7 @@ Research done in **November 2026**. It is background for the expert agent team t
 | 11 | Financial model | [11-financial-model.xlsx](11-financial-model.xlsx) | 3-year monthly model with tabs for Read Me, Assumptions, Startup Costs, Staffing, Monthly Model and Annual Summary. Blue cells are inputs; everything else is formulas |
 | 12 | Expert roster | [expert-roster.md](expert-roster.md) | The 32-agent advisory team (orchestrator, agent-architect meta agent, and 30 experts across strategy, industry, technical, operations, finance, legal and marketing), its 40 shared skills, and a skill matrix. The agents and skills live in `.claude/`; see `CLAUDE.md` for how to use them |
 | 13 | How to talk to your experts | [how-to-talk-to-your-experts.md](how-to-talk-to-your-experts.md) | How to ask one expert or the whole team (through the orchestrator), plus four ready-to-use prompts that bring several experts together |
+| 14 | Agent brains and personalities | [agent-brains.md](agent-brains.md) | Which Claude model each agent runs on (opus / sonnet / haiku) and why, plus each agent's first name, voice and working style. Each agent also has a knowledge folder in [`../knowledge/`](../knowledge/README.md) that it reads before answering |
 
 ## One-paragraph business summary
 

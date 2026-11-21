@@ -16,10 +16,11 @@ Used by: `agent-architect`. Part of the Experts21-OZ team (see `CLAUDE.md` and `
 2. Check for overlap. Prefer improving an existing agent or skill over adding a new one. Keep the team between 10 and 50 agents.
 3. Agent file `.claude/agents/<name>.md`: YAML frontmatter (`name` kebab-case with no `:`, a `description` that says when to delegate, `skills:` list of up to 32 skills, and `disallowedTools`). Then the body: role, focus, deliverables, how you work, output format, hand-offs, guardrails.
 4. Skill file `.claude/skills/<name>/SKILL.md`: frontmatter `name` (same as the directory), `description` (key use case first, under about 1,000 characters), `metadata.used_by` (the agents that preload it). Then the body: when to use, procedure, output template, quality checklist, reference.
-5. Wire it up both ways: add the skill to each agent's `skills:` list and list those agents in the skill's `metadata.used_by`. Never preload a skill that sets `disable-model-invocation: true`.
-6. Add the new agent to the orchestrator's routing table and to docs/expert-roster.md (agent table, skill table, matrix).
-7. Run `python3 scripts/validate_team.py` and fix every error before finishing.
-8. To improve a weak agent: collect the failing example, find the cause (unclear description, missing skill, missing facts, wrong tools), make the smallest fix, and re-test with the same example.
+5. Give every new agent a `model:` (`opus` for deep strategy, legal and finance judgment; `sonnet` for most specialist work; `haiku` for fast, simple lookups), a persona (a unique first name, a voice, a working style) in a **Your persona** section, and a **Your knowledge folder: read it first** section. Create `knowledge/<name>/README.md` saying which documents belong there. Add the agent to `docs/agent-brains.md` with the reason for its model.
+6. Wire it up both ways: add the skill to each agent's `skills:` list and list those agents in the skill's `metadata.used_by`. Never preload a skill that sets `disable-model-invocation: true`.
+7. Add the new agent to the orchestrator's routing table and to docs/expert-roster.md (agent table, skill table, matrix).
+8. Run `python3 scripts/validate_team.py` and fix every error before finishing.
+9. To improve a weak agent: collect the failing example, find the cause (unclear description, missing skill, missing facts, wrong tools), make the smallest fix, and re-test with the same example.
 
 ## Output template
 
@@ -36,7 +37,9 @@ Used by: `agent-architect`. Part of the Experts21-OZ team (see `CLAUDE.md` and `
 ## Quality checklist
 
 - [ ] Frontmatter starts on line 1 and parses as YAML
-- [ ] Names are kebab-case and unique
+- [ ] Names and persona first names are unique
+- [ ] Model chosen and justified in docs/agent-brains.md
+- [ ] Knowledge folder and README exist
 - [ ] Descriptions say *when* to use, not just what
 - [ ] Skill wiring matches in both directions
 - [ ] The orchestrator routing table and the roster doc are updated
