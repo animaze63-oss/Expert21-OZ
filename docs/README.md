@@ -24,7 +24,7 @@ Research done in **November 2026**. It is background for the expert agent team t
 | 9 | Business plan | [09-business-plan.md](09-business-plan.md) | Full plan: services, market, positioning, go-to-market, a hiring plan tied to revenue triggers, 3-year financials, milestones. Base case: $358K / $981K / $1.93M revenue, profitable from Year 1 on $75K of founder capital |
 | 10 | Contract template | [10-msa-and-sow-template.md](10-msa-and-sow-template.md) | Master Services Agreement with AI-specific clauses (output disclaimer, human review, TCPA consent, no training on client data, Florida breach-notice timing) plus a fill-in Statement of Work. **Draft; needs review by a Florida attorney** |
 | 11 | Financial model | [11-financial-model.xlsx](11-financial-model.xlsx) | 3-year monthly model with tabs for Read Me, Assumptions, Startup Costs, Staffing, Monthly Model and Annual Summary. Blue cells are inputs; everything else is formulas |
-| 12 | Expert roster | [expert-roster.md](expert-roster.md) | 30 advisor agents (strategy, industry, technical, operations, finance, legal, marketing) with one-line job descriptions, 38 skills showing which agents share each one, a skill matrix and a build order |
+| 12 | Expert roster | [expert-roster.md](expert-roster.md) | The 32-agent advisory team (orchestrator, agent-architect meta agent, and 30 experts across strategy, industry, technical, operations, finance, legal and marketing), its 40 shared skills, and a skill matrix. The agents and skills live in `.claude/`; see `CLAUDE.md` for how to use them |
 
 ## One-paragraph business summary
 
