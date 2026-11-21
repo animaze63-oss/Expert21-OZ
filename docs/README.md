@@ -17,13 +17,21 @@ Research done in **November 2026**. It is background for the expert agent team t
 | 7 | Marketing | [07-marketing.md](07-marketing.md) | Offer ladder: Audit → Sprint → Retainer. Referrals, local events, bilingual LinkedIn, and SEO/GEO |
 | 8 | Risks | [08-risks.md](08-risks.md) | Commoditization, cash flow, data breach, AI errors, regulatory change (FL SB 482 likely returns in 2027), TCPA |
 
+## Working documents
+
+| # | Document | File | What it is |
+|---|---|---|---|
+| 9 | Business plan | [09-business-plan.md](09-business-plan.md) | Full plan: services, market, positioning, go-to-market, a hiring plan tied to revenue triggers, 3-year financials, milestones. Base case: $358K / $981K / $1.93M revenue, profitable from Year 1 on $75K of founder capital |
+| 10 | Contract template | [10-msa-and-sow-template.md](10-msa-and-sow-template.md) | Master Services Agreement with AI-specific clauses (output disclaimer, human review, TCPA consent, no training on client data, Florida breach-notice timing) plus a fill-in Statement of Work. **Draft; needs review by a Florida attorney** |
+| 11 | Financial model | [11-financial-model.xlsx](11-financial-model.xlsx) | 3-year monthly model with tabs for Read Me, Assumptions, Startup Costs, Staffing, Monthly Model and Annual Summary. Blue cells are inputs; everything else is formulas |
+
 ## One-paragraph business summary
 
 Start a bilingual (English/Spanish) AI and workflow-automation consultancy in Miami for 10–250-employee businesses. Focus first on real estate, healthcare practices, and law firms. Sell a paid **AI Opportunity Audit** ($2.5K–$7.5K), a fixed-price **30-Day Workflow Sprint** ($7.5K–$25K), and a **Managed Automation retainer** ($2.5K–$8K a month) with monthly outcome reports. Stand apart from the Big 4, dev shops, MSPs, and offshore agencies through published pricing, vertical playbooks, governance built into every project, and local bilingual presence. Keep fixed costs low with contractors and an internal team of AI agents. Aim to have more than 50% of revenue recurring by month 12.
 
 ## How the agent team should use these docs
 
-- **Planning, strategy, and finance agents:** start with 01, 04, and 08.
+- **Planning, strategy, and finance agents:** start with 09, 11, 01, 04, and 08.
 - **Sales and marketing agents:** 02, 03, and 07.
-- **Operations, HR, and compliance agents:** 05, 06, and 08.
+- **Operations, HR, and compliance agents:** 05, 06, 08, and 10 (contracts).
 - Treat numbers as starting assumptions. Refresh market, pricing, and legal facts every quarter, especially Florida AI legislation before and after the 2027 session.
