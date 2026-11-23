@@ -1,0 +1,13 @@
+date,channel,language,format,topic,hook (first line),impressions,engagement_rate,link_clicks,leads,notes
+2026-09-02,LinkedIn,EN,text,launch announcement,"We're launching an AI consulting firm in Miami!",1450,0.021,9,0,SAMPLE DATA - generic launch post; low engagement
+2026-09-09,LinkedIn,EN,carousel,before/after lead response,"A Brickell brokerage took 4 hours to answer leads. Here's what 60 seconds looks like.",4820,0.064,61,3,SAMPLE DATA - best EN post; specific number in hook
+2026-09-16,LinkedIn,ES,carousel,before/after lead response,"Una inmobiliaria en Brickell tardaba 4 horas en responder. Así se ven 60 segundos.",5310,0.078,72,4,SAMPLE DATA - best post overall; Spanish carousel
+2026-09-23,LinkedIn,EN,text,AI hype take,"AI is about to change EVERYTHING for small business.",2100,0.017,6,0,SAMPLE DATA - hype language underperformed
+2026-09-30,LinkedIn,EN,video (60s),demo: WhatsApp bot,"Watch an AI answer a WhatsApp lead at 11pm, in Spanish.",3900,0.055,44,2,SAMPLE DATA - short demo video did well
+2026-10-07,LinkedIn,ES,text,pricing transparency,"¿Cuánto cuesta realmente automatizar un proceso? Publicamos nuestros precios.",3350,0.049,58,3,SAMPLE DATA - price posts drive clicks
+2026-10-14,LinkedIn,EN,text,HIPAA explainer,"3 questions to ask before letting AI near patient data.",2600,0.038,27,1,SAMPLE DATA - solid with practice managers
+2026-10-21,LinkedIn,EN,poll,AI usage poll,"How is your team using AI today?",2950,0.031,4,0,SAMPLE DATA - poll got votes but no leads
+2026-10-28,LinkedIn,ES,video (60s),demo: intake assistant,"Así un asistente de IA prepara la admisión de casos para un bufete.",3700,0.058,39,2,SAMPLE DATA - Spanish demo strong with law firms
+2026-11-04,LinkedIn,EN,carousel,workshop recap,"What 40 Miami business owners asked us about AI.",3100,0.044,35,2,SAMPLE DATA - event recap decent
+2026-11-11,LinkedIn,EN,text,founder story,"Why I left my corporate job to help Miami businesses automate.",2400,0.036,12,0,SAMPLE DATA - personal story got likes not leads
+2026-11-18,Email,EN+ES,newsletter,monthly tips + workshop invite,"3 automations Miami firms set up this month",1200,0.29,96,5,SAMPLE DATA - engagement_rate here is open rate; best lead source
