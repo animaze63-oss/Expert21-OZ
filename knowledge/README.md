@@ -3,6 +3,7 @@
 Each agent has its own folder here, `knowledge/<agent-name>/`. The agent **reads everything in its folder before every answer**. Drop in documents that make that expert smarter about *your* firm: decisions, notes, client results, price quotes, contracts, reports. Each folder's README says what belongs there.
 
 - The newest information wins: where a knowledge document conflicts with `docs/`, the agent follows the knowledge document and says so.
+- Inside a folder, **the newest-dated document wins**, and **real documents beat files marked SAMPLE or FICTIONAL**. The agent says which file it followed.
 - **Never add secrets.** Anonymize client data.
 - Put sensitive files in a `private/` subfolder. Those folders are gitignored, so they stay on your machine and are never pushed.
 

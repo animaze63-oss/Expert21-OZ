@@ -19,6 +19,11 @@
 Put documents that should stay on your computer in a `private/` subfolder (for example `knowledge/logistics-trade-expert/private/`).
 `private/` folders are listed in `.gitignore`, so the agent can read them locally but they are never committed or pushed.
 
+## When documents disagree
+
+- **The newest date wins.** The agent follows the document with the latest date in its file name (or inside it) and tells you which older file it overrode.
+- **Real beats sample.** Files marked SAMPLE or FICTIONAL are only for testing. Once a real document of the same kind is added, the agent ignores the sample. Delete samples when you no longer need them.
+
 ## Tips
 
 - Use Markdown, plain text, PDF, CSV or XLSX files.

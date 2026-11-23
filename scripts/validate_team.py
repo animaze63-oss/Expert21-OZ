@@ -197,6 +197,8 @@ else:
             err(f"{rel}: unrecognized model '{model}'")
         if f"knowledge/{name}/" not in body:
             err(f"{rel}: body must tell the agent to read knowledge/{name}/ first")
+        if "The newest date wins" not in body or "Real beats sample" not in body:
+            err(f"{rel}: knowledge section is missing the conflict rules (newest date wins; real beats sample)")
         kreadme = os.path.join(KNOWLEDGE_DIR, name, "README.md")
         if not os.path.isfile(kreadme):
             err(f"knowledge/{name}/README.md is missing")
