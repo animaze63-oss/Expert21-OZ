@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.netlify/
+.env
+.env.*
+# Generated at build time from ../.claude and ../knowledge
+src/generated/
+netlify/data/

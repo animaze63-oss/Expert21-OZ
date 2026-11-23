@@ -12,6 +12,7 @@ This project is an **AI advisory team for a consultant launching and running a b
 | `.claude/agents/<name>.md` | One subagent per expert (frontmatter with `model:` + system prompt with persona). |
 | `.claude/skills/<name>/SKILL.md` | One skill per capability. Skills are preloaded into each agent that lists them (`metadata.used_by` mirrors this). |
 | `knowledge/<name>/` | Each agent's knowledge folder, which the agent reads before every answer. Its README says what belongs there. `private/` subfolders are gitignored. |
+| `web/` + `netlify.toml` | React web app for chatting with the agents, deployed on Netlify. It reads `.claude/` and `knowledge/` at build time (never `private/`). The Claude API is called only from the Netlify Function `web/netlify/functions/chat.mts`, using `ANTHROPIC_API_KEY`. See `web/README.md`. |
 | `scripts/validate_team.py` | Checks the agent and skill files, their wiring, models, personas, knowledge folders, the orchestrator routing table, the roster and the brains page. |
 
 ## The team

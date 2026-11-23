@@ -1,0 +1,25 @@
+# Netlify builds the Experts21-OZ web app from the web/ folder with no extra settings.
+# Paths below are relative to the base directory (web/).
+
+[build]
+  base = "web"
+  command = "npm run build"
+  publish = "dist"
+  # The build reads ../.claude/agents, ../.claude/skills, ../knowledge and ../docs, which sit
+  # outside web/. Always rebuild, so a push that only changes an agent or a knowledge file
+  # still updates the live site.
+  ignore = "exit 1"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
